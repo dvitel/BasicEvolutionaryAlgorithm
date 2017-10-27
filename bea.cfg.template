@@ -1,0 +1,53 @@
+#generally 
+#<nameOfAction>.<parameter>
+#<parameter> is binding for class constructor or method
+
+log = logs\\log.txt
+data = data\\data.csv
+
+#Genotype = dvitel.bea.Genotype.BigIntGenotype
+#Fitness = dvitel.bea.Genotype$BigIntGenotype$Fitness::OneMax
+#Fitness = dvitel.bea.Genotype$BigIntGenotype$Fitness::Sum
+Fitness.targetString = some testing string
+Fitness = dvitel.bea.CharGenotype$Fitness::SimilarTo
+#Fitness = dvitel.bea.BigIntGenotype$Fitness::OneMax
+
+GenotypeGen.count = 10
+#GenotypeGen.vectorSize = 500
+GenotypeGen.minVectorSize = 1
+GenotypeGen.maxVectorSize = 5
+GenotypeGen.domain = a bcdefghijklmnopqrstuvwxyz  
+#GenotypeGen = dvitel.bea.BigIntGenotype::createRandom
+#GenotypeGen = dvitel.bea.BigIntGenotype::createRandomWithVarSize
+GenotypeGen = dvitel.bea.CharGenotype::createRandom
+
+#Population.fitness = {{Fitness}} - apply by default 
+Population = dvitel.bea.ListPopulation
+
+Selection.tournamentSize = 2
+Selection = dvitel.bea.Selection::Tournament
+
+Crossover.points = 1
+Crossover.rate = 0.8
+Crossover = dvitel.bea.Crossover::Default2
+
+Mutation.rate = 0.05
+#Mutation = dvitel.bea.Mutation::PerGene
+Mutation.minLength = 1
+Mutation.maxLength = 30
+Mutation = dvitel.bea.Mutation::PerGeneWithLength
+
+ReplacementSelection.tournamentSize = 2
+ReplacementSelection = dvitel.bea.Selection::Tournament
+
+Alg.numGenerations = 5000
+Alg.selectCount = 2
+Alg.printGen = false
+Alg.recordEveryNth = 10
+Alg = dvitel.bea.EvolutionAlgorithm$SteadyState::create
+
+Workbench.printEveryTest = true
+Workbench.nTimes = 10
+
+Config.0 = cfgs\\bea0.cfg
+Config.1 = cfgs\\bea1.cfg
